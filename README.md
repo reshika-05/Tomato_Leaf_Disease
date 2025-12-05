@@ -51,8 +51,6 @@ Easy to edit or extend.
 ├── .gitignore
 └── README.md
 
-markdown
-Copy code
 
 ---
 
@@ -79,9 +77,6 @@ Copy code
 
 ### **Endpoint:**
 POST /predict
-
-nginx
-Copy code
 
 ### **Request:**
 Send an image file:
