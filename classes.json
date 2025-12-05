@@ -1,0 +1,26 @@
+{
+  "classes": [
+    "Tomato_Bacterial_spot",
+    "Tomato_Early_blight",
+    "Tomato_Late_blight",
+    "Tomato_Leaf_Mold",
+    "Tomato_Septoria_leaf_spot",
+    "Tomato__Spider_mites_Two_spotted_spider_mite",
+    "Tomato__Target_Spot",
+    "Tomato__Tomato_YellowLeaf__Curl_Virus",
+    "Tomato__Tomato_mosaic_virus",
+    "Tomato__healthy"
+  ],
+  "remedies": {
+    "Tomato_Bacterial_spot": "Remove infected leaves, avoid overhead watering, and spray Copper Oxychloride (3g/L) or Streptocycline (100mg/L) + Copper Oxychloride (2.5g/L) every 10 days.",
+    "Tomato_Early_blight": "Spray Mancozeb (0.25%) or Chlorothalonil (0.2%) every 7–10 days, rotate crops, and remove lower infected leaves.",
+    "Tomato_Late_blight": "Apply Bordeaux mixture (1%) or Metalaxyl + Mancozeb (Ridomil Gold) 0.25% every 10 days; avoid overhead watering.",
+    "Tomato_Leaf_Mold": "Ensure good ventilation, prune lower leaves, and spray Sulfur or Baking soda solution (1 tsp/L).",
+    "Tomato_Septoria_leaf_spot": "Remove diseased leaves, spray Mancozeb (0.25%) or Chlorothalonil (0.2%) weekly, and use neem oil preventively.",
+    "Tomato__Spider_mites_Two_spotted_spider_mite": "Spray neem oil (3%) or soap solution (2 mL/L) every 5 days; release predatory mites (Phytoseiulus persimilis).",
+    "Tomato__Target_Spot": "Use Trichoderma viride in soil, spray Mancozeb (0.25%) or Chlorothalonil (0.2%), and avoid overhead irrigation.",
+    "Tomato__Tomato_YellowLeaf__Curl_Virus": "Use yellow sticky traps to control whiteflies, spray neem oil (3%), and apply Imidacloprid (0.05%) soil drench; remove infected plants.",
+    "Tomato__Tomato_mosaic_virus": "Uproot and destroy infected plants, disinfect tools (1% bleach), and control aphids/whiteflies using Imidacloprid or Thiamethoxam.",
+    "Tomato__healthy": "Your plant is healthy! Maintain balanced watering, sunlight exposure, and apply organic compost regularly."
+  }
+}

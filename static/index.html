@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tomato Disease Classifier 🍅</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        padding: 20px;
+        text-align: center;
+    }
+    #preview {
+        margin-top: 20px;
+        max-width: 300px;
+        border-radius: 10px;
+    }
+    .result-box {
+        margin-top: 20px;
+        padding: 15px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 7px rgba(0,0,0,0.1);
+        text-align: left;
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+</head>
+<body>
+
+<h2>🍅 Tomato Disease Detector</h2>
+<p>Upload a tomato leaf image and get predictions.</p>
+
+<input type="file" id="imageInput" accept="image/*"><br>
+
+<img id="preview" style="display:none;">
+
+<button onclick="uploadImage()" style="margin-top:20px; padding:10px 20px;">
+    Predict
+</button>
+
+<div id="results"></div>
+
+<script>
+function uploadImage() {
+    const fileInput = document.getElementById("imageInput");
+    const resultsDiv = document.getElementById("results");
+
+    if (!fileInput.files[0]) {
+        alert("Please upload an image");
+        return;
+    }
+
+    const file = fileInput.files[0];
+    const formData = new FormData();
+    formData.append("file", file);
+
+    resultsDiv.innerHTML = "<p>⏳ Processing...</p>";
+
+    fetch("http://127.0.0.1:5000/predict", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.error) {
+            resultsDiv.innerHTML = `<p style='color:red;'>${data.error}</p>`;
+            return;
+        }
+
+        let html = "<div class='result-box'><h3>🔍 Predictions</h3>";
+        data.predictions.forEach(p => {
+            html += `
+                <p><strong>Disease:</strong> ${p.class}</p>
+                <p><strong>Confidence:</strong> ${(p.confidence * 100).toFixed(2)}%</p>
+                <p><strong>Remedy:</strong> ${p.remedy}</p>
+                <hr>
+            `;
+        });
+        html += "</div>";
+
+        resultsDiv.innerHTML = html;
+    })
+    .catch(err => {
+        resultsDiv.innerHTML = "<p style='color:red;'>Error connecting to API</p>";
+        console.error(err);
+    });
+}
+
+// Show preview image
+document.getElementById("imageInput").addEventListener("change", function() {
+    const preview = document.getElementById("preview");
+    preview.src = URL.createObjectURL(this.files[0]);
+    preview.style.display = "block";
+});
+</script>
+
+</body>
+</html>
